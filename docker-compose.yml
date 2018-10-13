@@ -60,7 +60,6 @@ services:
       - ./ldap:/etc/nginx/conf.d:ro
     ports:
       - "80:80"
-      - "443:443"
     networks:
       - elk
     depends_on:
