@@ -59,7 +59,7 @@ services:
     volumes:
       - ./ldap:/etc/nginx/conf.d:ro
     ports:
-      - "80:80"
+      - "88:80"
     networks:
       - elk
     depends_on:
