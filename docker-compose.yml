@@ -9,8 +9,8 @@ services:
         ELK_VERSION: $ELK_VERSION
     container_name: elasticsearch
     volumes:
-      - /mnt/mojinshi/data/elk/elasticsearch:/usr/share/elasticsearch:ro
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - /mnt/mojinshi/data/elk/elasticsearch:/usr/share/elasticsearch:ro
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -26,9 +26,9 @@ services:
         ELK_VERSION: $ELK_VERSION
     container_name: logstash
     volumes:
-      - /mnt/mojinshi/data/elk/logstash:/usr/share/logstash:ro
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
       - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+      - /mnt/mojinshi/data/elk/logstash:/usr/share/logstash:ro
     ports:
       - "5000:5000"
       - "5044:5044"
@@ -47,8 +47,8 @@ services:
         ELK_VERSION: $ELK_VERSION
     container_name: kibana
     volumes:
-      - /mnt/mojinshi/data/elk/kibana:/usr/share/kinana:ro
       - ./kibana/config/:/usr/share/kibana/config:ro
+      - /mnt/mojinshi/data/elk/kibana:/usr/share/kinana:ro
     ports:
       - "5601:5601"
     networks:
