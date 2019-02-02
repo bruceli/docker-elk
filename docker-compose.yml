@@ -38,6 +38,21 @@ services:
     depends_on:
       - elasticsearch
 
+  apm_server:
+    build:
+      context: apm/
+      args:
+        APM_VERSION: $APM_VERSION
+    container_name: apm_server
+    volumns:
+      - ./apm/config/apm-servier.yml:/usr/share/apm-server/apm-server.yml:ro
+    ports:
+      - "8200:8200"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+
   kibana:
     build:
       context: kibana/
