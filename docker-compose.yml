@@ -44,7 +44,7 @@ services:
       args:
         APM_VERSION: $APM_VERSION
     container_name: apm_server
-    volumns:
+    volumes:
       - ./apm/config/apm-servier.yml:/usr/share/apm-server/apm-server.yml:ro
     ports:
       - "8200:8200"
