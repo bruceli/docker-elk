@@ -5,3 +5,8 @@
 server.name: kibana
 server.host: "0"
 elasticsearch.url: http://elasticsearch:9200
+
+## X-Pack functions
+## see https://www.elastic.co/subscriptions
+#
+xpack.license.self_generated.type: basic
