@@ -1,7 +1,6 @@
 version: '2'
 
 services:
-
   elasticsearch:
     build:
       context: elasticsearch/
@@ -33,6 +32,19 @@ services:
       - "9600:9600"
     environment:
       LS_JAVA_OPTS: "-Xmx512m -Xms256m"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+
+  apm_server:
+    build:
+      context: apm/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: apm_server
+    ports:
+      - "8200:8200"
     networks:
       - elk
     depends_on:
